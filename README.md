@@ -6,9 +6,16 @@ plantumlで記述したUMLから画像を生成するためのサーバ
 
 ## 例
 
-`example.puml`から`example.png`を生成する
+1. サーバを起動
 
-```
-cat example.puml | curl --silent -H "Content-Type: text/plain; charset=utf-8" --data-binary @- http://plantuml:8080/png/ --output - > example.png
-```
+    ```
+    docker-compose up -d plantuml-server
+    ```
+
+1. `example.puml`から`example.png`を生成する
+
+    ```
+    cat example/example.puml | curl -H "Content-Type: text/plain; charset=utf-8" --data-binary @- http://127.0.0.1:8080/png/ --output - > example/example.png
+    ```
+
 [Firple]:https://github.com/negset/Firple
